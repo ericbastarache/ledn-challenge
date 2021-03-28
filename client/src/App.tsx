@@ -36,11 +36,13 @@ function App() {
   const columns = React.useMemo(() => [
       {
         Header: 'First Name',
-        accessor: 'First Name'
+        accessor: 'First Name',
+        filter: 'fuzzyNameSearch'
       },
       {
         Header: 'Last Name',
-        accessor: 'Last Name'
+        accessor: 'Last Name',
+        filter: 'fuzzyNameSearch'
       },
       {
         Header: 'Country',

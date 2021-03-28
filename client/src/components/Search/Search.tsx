@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAsyncDebounce } from 'react-table';
 
-const Search: React.FC = ({preGlobalFilteredRows, globalFilter, setGlobalFilter}: any) => {
+const Search: React.FC<any> = ({preGlobalFilteredRows, globalFilter, setGlobalFilter}) => {
   const count = preGlobalFilteredRows.length
   const [value, setValue] = React.useState(globalFilter)
   const onChange = useAsyncDebounce(value => {

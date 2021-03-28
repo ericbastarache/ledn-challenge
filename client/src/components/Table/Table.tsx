@@ -51,6 +51,7 @@ const Table: React.FC<TableProps> = ({ columns, data, fetchData, pageCount: cont
     defaultColumn,
     initialState: { pageIndex: 0 },
     manualPagination: true,
+    autoResetPage: false,
     pageCount: controlledPageCount,
   }, useFilters, useGlobalFilter, useSortBy, usePagination);
  
@@ -60,6 +61,11 @@ const Table: React.FC<TableProps> = ({ columns, data, fetchData, pageCount: cont
 
   return (
     <>
+      <Search
+        preGlobalFilteredRows={preGlobalFilteredRows}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+      />
       <table {...getTableProps}>
         <TableHeader>
           {headerGroups.map(headerGroup => (
@@ -70,8 +76,9 @@ const Table: React.FC<TableProps> = ({ columns, data, fetchData, pageCount: cont
                       ? column.isSortedDesc
                         ? ' 🔽'
                         : ' 🔼'
-                      : '🔼'}
-                  </span></th>
+                      : ''}
+                  </span>
+                </th>
               ))}
             </TableRow>
           ))}
