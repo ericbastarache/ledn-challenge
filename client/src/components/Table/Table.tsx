@@ -78,6 +78,7 @@ const Table: React.FC<TableProps> = ({ columns, data, fetchData, pageCount: cont
                         : ' 🔼'
                       : ''}
                   </span>
+                  <div>{column.canFilter ? column.render('Filter') : null}</div>
                 </th>
               ))}
             </TableRow>
