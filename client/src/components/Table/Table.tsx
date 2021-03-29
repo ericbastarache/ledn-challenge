@@ -1,7 +1,5 @@
 import React from 'react';
-import { jsx, css } from '@emotion/react';
-import Fuse from 'fuse.js';
-import { useTable, useFilters, usePagination, useGlobalFilter, useSortBy, useAsyncDebounce, Row, Column } from 'react-table';
+import { useTable, useFilters, usePagination, useGlobalFilter, useSortBy } from 'react-table';
 import TableBody from './TableBody';
 import TableHeader from './TableHeader';
 import TableRow from './TableRow';
@@ -9,7 +7,6 @@ import TableCell from './TableCell';
 import Pagination from '../Pagination/Pagination';
 import Search from '../Search/Search';
 import DefaultColumnFilter from '../Filters/DefaultFilter';
-import { AccountProps } from '../../types';
 
 interface TableProps {
   columns: any;
@@ -28,21 +25,17 @@ const Table: React.FC<TableProps> = ({ columns, data, fetchData, pageCount: cont
   )
   const {
     getTableProps,
-    getTableBodyProps,
     headerGroups,
     rows,
     prepareRow,
-    page,
     canPreviousPage,
     canNextPage,
-    pageOptions,
     pageCount,
     gotoPage,
     nextPage,
     previousPage,
     setPageSize,
     state: { pageIndex, pageSize, globalFilter },
-    visibleColumns,
     preGlobalFilteredRows,
     setGlobalFilter
   } = useTable({

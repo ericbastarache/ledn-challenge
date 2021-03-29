@@ -3,14 +3,10 @@ import './App.css';
 import Table from './components/Table/Table';
 import { AccountProps } from './types';
 import SelectFilter from './components/Filters/SelectFilter';
-interface ErrorObj {
-  [key: string]: string
-}
 
 function App() {
   const [data, setData] = React.useState<Array<AccountProps>>([]);
   const [fullData, setFullData] = React.useState<Array<AccountProps>>([]);
-  const [error, setError] = React.useState<ErrorObj>({});
   const [pageCount, setPageCount] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
   const downloadDataAsCSV = () => {
@@ -43,7 +39,7 @@ function App() {
         setLoading(false)
         }
       } catch (err) {
-        setError(err.message);
+        console.log(err);
       }
     }
     fetchAccountsData();
